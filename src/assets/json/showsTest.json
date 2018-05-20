@@ -1,0 +1,30 @@
+[
+  {
+    "title": "This Is Us",
+    "status": "Continuing",
+    "last_aired": "2",
+    "last_seen": "2",
+    "poster": "https://www.thetvdb.com/banners/posters/311714-9.jpg"
+  },
+  {
+    "title": "Breaking Bad",
+    "status": "Ended",
+    "last_aired": "5",
+    "last_seen": "5",
+    "poster": "https://www.thetvdb.com/banners/posters/81189-10.jpg"
+  },
+  {
+    "title": "Billions",
+    "status": "Continuing",
+    "last_aired": "3",
+    "last_seen": "3",
+    "poster": "https://www.thetvdb.com/banners/posters/279536-9.jpg"
+  },
+  {
+    "title": "Boardwalk Empire",
+    "status": "Ended",
+    "last_aired": "5",
+    "last_seen": "5",
+    "poster": "https://www.thetvdb.com/banners/posters/84947-4.jpg"
+  }
+]
