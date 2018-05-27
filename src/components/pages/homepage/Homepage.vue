@@ -5,9 +5,7 @@
 		</div>
 		<div class="add-news">
 		</div>
-		<div class="add-show">
-			<AddShow></AddShow>
-		</div>
+		<AddShow></AddShow>
 	</div>
 </template>
 

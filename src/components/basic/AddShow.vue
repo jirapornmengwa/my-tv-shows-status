@@ -1,16 +1,16 @@
 <template>
-  <div class="wrapper">
+  <div class="add-show">
     <form @submit="add">
       <label>Title</label>
-      <input type="text" name="title" v-model="title">
+      <input type="text" name="title" v-on:blur="inputBlurHandler">
       <label>Status</label>
-      <input type="text" name="status" v-model="status">
+      <input type="text" name="status" v-on:blur="inputBlurHandler">
       <label>Last Aired</label>
-      <input type="text" name="last_aired" v-model="last_aired">
+      <input type="text" name="last_aired" v-on:blur="inputBlurHandler">
       <label>Last Seen</label>
-      <input type="text" name="last_seen" v-model="last_seen">
+      <input type="text" name="last_seen" v-on:blur="inputBlurHandler">
       <label>Poster</label>
-      <input type="text" name="poster" v-model="poster">
+      <input type="text" name="poster" v-on:blur="inputBlurHandler">
       <button type="submit" name="button">ADD</button>
     </form>
   </div>
@@ -46,14 +46,19 @@ export default {
       };
       shows.push(show);
       localStorage.setItem('shows', JSON.stringify(shows));
+    },
+    inputBlurHandler: function(e) {
+      this._data[e.target.name] = e.target.value;
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
-label,
-button {
-  display: block;
+<style lang="scss">
+.add-show {
+  label,
+  button {
+    display: block;
+  }
 }
 </style>
