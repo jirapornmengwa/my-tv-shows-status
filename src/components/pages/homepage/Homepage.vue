@@ -1,16 +1,6 @@
 <template>
 	<div class="homepage">
-		<div class="showcase">
-			<ShowElement
-				v-for="(show, index) in shows"
-				:key="index"
-				:title="show.title"
-				:poster="show.poster"
-				:status="show.status"
-				:last_aired="show.last_aired"
-				:last_seen="show.last_seen">
-			</ShowElement>
-		</div>
+		<Showcase />
 		<div class="news">
 		</div>
 		<div class="add-news">
@@ -22,19 +12,13 @@
 </template>
 
 <script>
-import ShowElement from '@/components/basic/ShowElement';
+import Showcase from '@/components/basic/Showcase/Showcase';
 import AddShow from '@/components/basic/AddShow';
-import ShowElementJSON from '@/assets/json/showsTest.json';
 
 export default {
   components: {
-    ShowElement,
+    Showcase,
     AddShow
-  },
-  data() {
-    return {
-      shows: ShowElementJSON
-    };
   }
 };
 </script>
@@ -50,9 +34,6 @@ export default {
 
   .showcase {
     grid-area: showcase;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px 0;
   }
 
   .news {

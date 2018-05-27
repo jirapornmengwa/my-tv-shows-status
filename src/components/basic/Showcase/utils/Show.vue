@@ -37,17 +37,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .wrapper {
-    display: flex;
+.wrapper {
+  display: flex;
+}
+
+.information {
+  margin-left: 10px;
+
+  label {
+    text-decoration: underline;
   }
 
-  .information {
-    margin-left: 10px;
-    label {
-      text-decoration: underline;
-    }
-    p {
-      margin: 5px 0 10px 0;
-    }
+  p {
+    margin: 5px 0 10px 0;
   }
+}
 </style>
