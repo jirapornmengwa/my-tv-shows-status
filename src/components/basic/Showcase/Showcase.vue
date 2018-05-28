@@ -14,7 +14,6 @@
 
 <script>
 import Show from '@/components/basic/Showcase/utils/Show';
-import ShowElementJSON from '@/assets/json/showsTest.json';
 
 export default {
   components: {
@@ -22,7 +21,7 @@ export default {
   },
   data() {
     return {
-      shows: ShowElementJSON
+      shows: JSON.parse(localStorage.getItem('shows'))
     };
   }
 };

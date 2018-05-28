@@ -31,7 +31,6 @@ export default {
   methods: {
     add: function(e) {
       e.preventDefault();
-      debugger;
 
       let shows =
         localStorage.getItem('shows') === null
