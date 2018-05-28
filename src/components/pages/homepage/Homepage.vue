@@ -2,6 +2,8 @@
 	<div class="homepage">
 		<Showcase />
 		<div class="news">
+			<button v-on:click="saveFile">Download JSON</button>
+			<input type="file" v-on:change="loadFile">
 		</div>
 		<div class="add-news">
 		</div>
@@ -17,6 +19,27 @@ export default {
   components: {
     Showcase,
     AddShow
+  },
+  methods: {
+    saveFile: function() {
+      let blob = new Blob([localStorage.getItem('shows')], {type: 'application/json'});
+      let a = document.createElement('a');
+
+      a.href = URL.createObjectURL(blob);
+      a.download = 'shows.json';
+      a.onclick = (event) => {
+        event.target.remove();
+      };
+      a.click();
+    },
+    loadFile: function(e) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        let shows = JSON.parse(decodeURIComponent(event.target.result));
+        // TODO: 
+      };
+      reader.readAsText(e.target.files[0]);
+    }
   }
 };
 </script>
