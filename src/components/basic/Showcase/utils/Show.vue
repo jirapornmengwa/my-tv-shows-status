@@ -1,14 +1,14 @@
 <template>
-  <div class="wrapper">
+  <div class="show-wrapper">
     <img :src="poster" width="170" height="250" alt="">
-    <div class="information">
-      <label for="">Title</label>
+    <div class="show-wrapper__information">
+      <label>Title</label>
       <p>{{title}}</p>
-      <label for="">Status</label>
+      <label>Status</label>
       <p>{{status}}</p>
-      <label for="">Last Aired</label>
+      <label>Last Aired</label>
       <p>season {{last_aired}}</p>
-      <label for="">Last Seen</label>
+      <label>Last Seen</label>
       <p>season {{last_seen}}</p>
     </div>
   </div>
@@ -37,19 +37,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.show-wrapper {
   display: flex;
+
+  &__information {
+    margin-left: 10px;
+
+    label {
+      text-decoration: underline;
+    }
+
+    p {
+      margin: 5px 0 10px 0;
+    }
+  }
 }
 
-.information {
-  margin-left: 10px;
-
-  label {
-    text-decoration: underline;
-  }
-
-  p {
-    margin: 5px 0 10px 0;
-  }
-}
 </style>
