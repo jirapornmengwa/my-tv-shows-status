@@ -4,7 +4,6 @@
 		<div class="news">
 		</div>
 		<div class="add-news">
-			<router-link to="/settings">Settings</router-link>
 		</div>
 		<AddShow></AddShow>
 	</div>
