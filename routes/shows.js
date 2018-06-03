@@ -11,4 +11,18 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.route('/register')
+  .post((req, res) => {
+    req.db.collection('shows').insertOne(req.body, function(err, ret) {
+      if (err) {
+  			throw err;
+  		}
+
+      res.send(ret.insertedId);
+    });
+  })
+  .put((req, res) => {
+    res.send('Update');
+  });
+
 module.exports = router;

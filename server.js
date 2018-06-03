@@ -1,9 +1,13 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const shows = require('./routes/shows');
 
 let database;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
 	// Website you wish to allow to connect
@@ -28,7 +32,7 @@ app.use(function(req, res, next) {
 
 app.use('/api/shows', shows);
 
-MongoClient.connect('mongodb://localhost:27017', function(err, client) {
+MongoClient.connect('mongodb://localhost:27017/my-tv-shows-status', function(err, client) {
 	if (err) {
     throw err;
   }
