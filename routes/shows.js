@@ -1,13 +1,36 @@
 const express = require('express');
 const router = express.Router();
+const ObjectId = require('mongodb').ObjectId;
 
 router.get('/', (req, res) => {
-	req.db.collection('shows').find().toArray(function(err, result) {
+	req.db.collection('shows').find().toArray(function(err, ret) {
 		if (err) {
 			throw err;
 		}
 
-		res.send(result);
+		res.send(ret);
+	});
+});
+
+router.get('/:id', (req, res) => {
+	let query = {_id: ObjectId(req.params.id)};
+	req.db.collection('shows').findOne(query, function(err, ret) {
+		if (err) {
+			throw err;
+		}
+
+		res.send(ret);
+	});
+});
+
+router.delete('/delete/:id', (req, res) => {
+	let query = {_id: ObjectId(req.params.id)};
+	req.db.collection('shows').deleteOne(query, function(err, ret) {
+		if (err) {
+			throw err;
+		}
+
+		res.send(ret);
 	});
 });
 
@@ -22,7 +45,15 @@ router.route('/register')
     });
   })
   .put((req, res) => {
-    res.send('Update');
+		let query = {_id: ObjectId(req.body.id)};
+		let changes = {$set: req.body.changes};
+	  req.db.collection("shows").updateOne(query, changes, function(err, ret) {
+			if (err) {
+  			throw err;
+  		}
+
+	    res.send(ret);
+	  });
   });
 
 module.exports = router;
