@@ -2,28 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Show = require('../models/Show');
 
-// router.get('/:id', (req, res) => {
-// 	let query = {_id: ObjectId(req.params.id)};
-// 	req.db.collection('shows').findOne(query, function(err, ret) {
-// 		if (err) {
-// 			throw err;
-// 		}
-//
-// 		res.send(ret);
-// 	});
-// });
-
-// router.delete('/delete/:id', (req, res) => {
-// 	let query = {_id: ObjectId(req.params.id)};
-// 	req.db.collection('shows').deleteOne(query, function(err, ret) {
-// 		if (err) {
-// 			throw err;
-// 		}
-//
-// 		res.send(ret);
-// 	});
-// });
-
 router.route('/')
 	.get((req, res) => {
 		Show.find(function (err, data) {
@@ -44,16 +22,33 @@ router.route('/')
 	  });
 	});
 
-// router.put(("/put"), (req, res) => {
-// 		let query = {_id: ObjectId(req.body.id)};
-// 		let changes = {$set: req.body.changes};
-// 	  req.db.collection("shows").updateOne(query, changes, function(err, ret) {
-// 			if (err) {
-//   			throw err;
-//   		}
-//
-// 	    res.send(ret);
-// 	  });
-//   });
+	router.route('/:id')
+		.get((req, res) => {
+			Show.find({_id: req.params.id}, function (err, data) {
+		    if (err) {
+					res.status(500).send(err);
+				}
+
+		    res.send(data);
+		  });
+		})
+		.delete((req, res) => {
+			Show.deleteOne({_id: req.params.id}, function (err, data) {
+		    if (err) {
+					res.status(500).send(err);
+				}
+
+				res.send("Show deleted successfully.");
+		  });
+		})
+		.put((req, res) => {
+			Show.updateOne({_id: req.params.id}, req.body, function (err, data) {
+		    if (err) {
+					res.status(500).send(err);
+				}
+
+		    res.send(data);
+		  });
+		});
 
 module.exports = router;
