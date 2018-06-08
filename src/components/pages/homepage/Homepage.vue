@@ -45,7 +45,7 @@ export default {
     grid-area: add-news;
     width: 200px;
     height: 100px;
-    background-color: lightgrey;
+    background-color: grey;
   }
 
   .add-show {
