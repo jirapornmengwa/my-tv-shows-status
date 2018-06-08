@@ -2,6 +2,7 @@
 	<div class="homepage">
 		<Showcase />
 		<div class="news">
+			<p>{{$store.state.count}}</p>
 		</div>
 		<div class="add-news">
 		</div>
