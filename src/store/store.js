@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import shows from './modules/showsModule';
 
 Vue.use(Vuex);
 
-const state = {
-  count: 0
-};
-
 export default new Vuex.Store({
-  state
+  modules: {
+    shows
+  }
 });
