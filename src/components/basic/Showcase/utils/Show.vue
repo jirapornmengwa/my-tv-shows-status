@@ -27,10 +27,10 @@ export default {
       type: String
     },
     last_aired: {
-      type: String
+      type: Number
     },
     last_seen: {
-      type: String
+      type: Number
     }
   }
 };
@@ -52,5 +52,4 @@ export default {
     }
   }
 }
-
 </style>
