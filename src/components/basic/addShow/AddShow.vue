@@ -17,25 +17,12 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
+
 export default {
-  props: {},
-  data() {
-    return {
-      title: '',
-      status: '',
-      last_aired: '',
-      last_seen: '',
-      poster: ''
-    };
-  },
   methods: {
     add: function(e) {
       e.preventDefault();
-
-      let shows =
-        localStorage.getItem('shows') === null
-          ? []
-          : JSON.parse(localStorage.getItem('shows'));
       let show = {
         title: this.title,
         status: this.status,
@@ -43,8 +30,7 @@ export default {
         last_seen: this.last_seen,
         poster: this.poster
       };
-      shows.push(show);
-      localStorage.setItem('shows', JSON.stringify(shows));
+      this.$store.dispatch('shows/addShow', show);
     },
     inputBlurHandler: function(e) {
       this._data[e.target.name] = e.target.value;

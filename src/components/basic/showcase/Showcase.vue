@@ -13,16 +13,18 @@
 </template>
 
 <script>
-import Show from '@/components/basic/Showcase/utils/Show';
+import Show from '@/components/basic/showcase/utils/Show';
+import {mapState, mapActions} from 'vuex';
 
 export default {
   components: {
     Show
   },
-  data() {
-    return {
-      shows: JSON.parse(localStorage.getItem('shows'))
-    };
+  computed: mapState({
+    shows: (state) => state.shows.showsList
+  }),
+  created() {
+    this.$store.dispatch('shows/getShows');
   }
 };
 </script>

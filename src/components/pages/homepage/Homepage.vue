@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Showcase from '@/components/basic/Showcase/Showcase';
-import AddShow from '@/components/basic/AddShow';
+import Showcase from '@/components/basic/showcase/Showcase';
+import AddShow from '@/components/basic/addShow/AddShow';
 
 export default {
   components: {
