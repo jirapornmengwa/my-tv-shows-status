@@ -20,6 +20,18 @@ const actions = {
         console.log(reject);
       }
     );
+  },
+  addShow({commit, state}, data) {
+    API.post(
+      '/shows',
+      data,
+      (resolve) => {
+        commit('addShow', resolve.data);
+      },
+      (reject) => {
+        console.log(reject);
+      }
+    );
   }
 };
 
@@ -27,6 +39,9 @@ const actions = {
 const mutations = {
   setList(state, shows) {
     state.showsList = shows;
+  },
+  addShow(state, show) {
+    state.showsList.push(show);
   }
 };
 

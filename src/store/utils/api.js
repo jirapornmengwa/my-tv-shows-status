@@ -17,3 +17,13 @@ export function get(url, resolve, reject) {
       reject(error);
     });
 }
+
+export function post(url, data, resolve, reject) {
+  return API.post(url, data)
+    .then((response) => {
+      resolve(response);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+}
