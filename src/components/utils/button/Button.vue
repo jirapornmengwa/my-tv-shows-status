@@ -9,10 +9,7 @@ export default {
       type: String,
       default: 'button'
     },
-    name: {
-      type: String,
-      default: 'generic-button'
-    },
+    name: String,
     text: {
       type: String,
       required: true
@@ -43,10 +40,20 @@ button {
 }
 
 .primary {
-  background-color: #1ada93;
+  background-color: $colors-primary;
+  color: #fff;
+
+  &:hover {
+    background-color: $colors-primary-dark;
+  }
 }
 
 .secondary {
-  background-color: #ff3737;
+  background-color: $colors-secondary;
+  color: #fff;
+
+  &:hover {
+    background-color: $colors-secondary-dark;
+  }
 }
 </style>
