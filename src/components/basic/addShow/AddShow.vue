@@ -11,15 +11,19 @@
       <input type="text" name="last_seen" v-on:blur="inputBlurHandler">
       <label>Poster</label>
       <input type="text" name="poster" v-on:blur="inputBlurHandler">
-      <button type="submit" name="button">ADD</button>
+      <Button type="submit" name="add-show" text="add" importance="primary" />
     </form>
   </div>
 </template>
 
 <script>
 import {mapActions} from 'vuex';
+import Button from '@/components/utils/button/Button';
 
 export default {
+  components: {
+    Button
+  },
   methods: {
     add: function(e) {
       e.preventDefault();
