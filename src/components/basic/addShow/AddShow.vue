@@ -1,16 +1,11 @@
 <template>
   <div class="add-show">
     <form @submit="add">
-      <label>Title</label>
-      <input type="text" name="title" v-on:blur="inputBlurHandler">
-      <label>Status</label>
-      <input type="text" name="status" v-on:blur="inputBlurHandler">
-      <label>Last Aired</label>
-      <input type="text" name="last_aired" v-on:blur="inputBlurHandler">
-      <label>Last Seen</label>
-      <input type="text" name="last_seen" v-on:blur="inputBlurHandler">
-      <label>Poster</label>
-      <input type="text" name="poster" v-on:blur="inputBlurHandler">
+      <Input label="Title" name="title" :blur="inputBlurHandler" />
+      <Input label="Status" name="status" :blur="inputBlurHandler" />
+      <Input label="Last Aired" name="last_aired" :blur="inputBlurHandler" />
+      <Input label="Last Seen" name="last_seen" :blur="inputBlurHandler" />
+      <Input label="Poster" name="poster" :blur="inputBlurHandler" />
       <Button type="submit" name="add-show" text="add" importance="primary" />
     </form>
   </div>
@@ -19,10 +14,12 @@
 <script>
 import {mapActions} from 'vuex';
 import Button from '@/components/utils/button/Button';
+import Input from '@/components/utils/input/Input';
 
 export default {
   components: {
-    Button
+    Button,
+    Input
   },
   methods: {
     add: function(e) {
@@ -44,10 +41,7 @@ export default {
 </script>
 
 <style lang="scss">
-.add-show {
-  label,
-  button {
-    display: block;
-  }
+Button {
+  margin-top: 10px;
 }
 </style>
