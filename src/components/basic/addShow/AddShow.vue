@@ -25,11 +25,11 @@ export default {
     add: function(e) {
       e.preventDefault();
       let show = {
-        title: this.title,
-        status: this.status,
-        last_aired: this.last_aired,
-        last_seen: this.last_seen,
-        poster: this.poster
+        title: this._data.title,
+        status: this._data.status,
+        last_aired: this._data.last_aired,
+        last_seen: this._data.last_seen,
+        poster: this._data.poster
       };
       this.$store.dispatch('shows/addShow', show);
     },
