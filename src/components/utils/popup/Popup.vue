@@ -5,9 +5,9 @@
     </div>
     <div v-if="open" class="overlay">
       <div class="content">
-        <slot name="content"></slot>
-        <button type="button" v-on:click="trigger">close</button>
+        <slot name="content" :closePopup="trigger"></slot>
       </div>
+      <button type="button" v-on:click="trigger">close</button>
     </div>
   </div>
 </template>
@@ -49,10 +49,19 @@ export default {
   justify-content: center;
   align-items: center;
 
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
   .content {
     width: 75%;
     height: 75%;
     background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
