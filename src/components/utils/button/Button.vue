@@ -1,5 +1,5 @@
 <template>
-  <button :type="type" :name="name" :class="importance" :disabled="disabled">{{text}}</button>
+  <button :type="type" :name="name" :class="importance" :disabled="disabled" v-on="action ? {click: action} : {}">{{text}}</button>
 </template>
 
 <script>
@@ -20,7 +20,8 @@ export default {
         return ['primary', 'secondary'].indexOf(value) !== -1;
       }
     },
-    disabled: Boolean
+    disabled: Boolean,
+    action: Function
   }
 };
 </script>

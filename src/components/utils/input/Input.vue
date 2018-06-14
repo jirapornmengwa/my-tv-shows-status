@@ -1,7 +1,7 @@
 <template>
   <div class="input-wrapper">
     <label>{{label}}</label>
-    <input :type="type" :name="name" :disabled="disabled" v-on:blur="blur"/>
+    <input :type="type" :name="name" :disabled="disabled" @blur="blur"/>
   </div>
 </template>
 

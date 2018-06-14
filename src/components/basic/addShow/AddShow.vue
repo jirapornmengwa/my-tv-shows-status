@@ -17,6 +17,9 @@ import Button from '@/components/utils/button/Button';
 import Input from '@/components/utils/input/Input';
 
 export default {
+  props: {
+    sumbitAction: Function
+  },
   components: {
     Button,
     Input
@@ -24,6 +27,7 @@ export default {
   methods: {
     add: function(e) {
       e.preventDefault();
+
       let show = {
         title: this._data.title,
         status: this._data.status,
@@ -32,6 +36,10 @@ export default {
         poster: this._data.poster
       };
       this.$store.dispatch('shows/addShow', show);
+
+      if (this.sumbitAction) {
+        this.sumbitAction();
+      }
     },
     inputBlurHandler: function(e) {
       this._data[e.target.name] = e.target.value;
@@ -40,8 +48,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-Button {
-  margin-top: 10px;
-}
+<style lang="scss" scoped>
 </style>
