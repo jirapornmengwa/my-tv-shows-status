@@ -41,20 +41,20 @@ button {
 }
 
 .primary {
-  background-color: $colors-primary;
+  background-color: $color-primary;
   color: #fff;
 
   &:hover {
-    background-color: $colors-primary-dark;
+    background-color: $color-primary-dark;
   }
 }
 
 .secondary {
-  background-color: $colors-secondary;
+  background-color: $color-secondary;
   color: #fff;
 
   &:hover {
-    background-color: $colors-secondary-dark;
+    background-color: $color-secondary-dark;
   }
 }
 </style>
