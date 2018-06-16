@@ -60,7 +60,7 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass', { data: '@import "src/assets/scss/variables/index.scss";' }),
+    scss: generateLoaders('sass', { data: '@import "src/assets/scss/variables/index.scss"; @import "src/assets/scss/mixins/index.scss";' }),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
