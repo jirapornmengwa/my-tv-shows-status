@@ -19,7 +19,7 @@ export default new Router({
       component: Settings
     },
     {
-      path: '/importExport',
+      path: '/import-export',
       name: 'ImportExport',
       component: ImportExport
     }

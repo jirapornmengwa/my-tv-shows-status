@@ -1,6 +1,6 @@
 <template>
   <div class="popup-wrapper">
-    <div v-on:click="trigger">
+    <div @click="trigger">
       <slot name="trigger"></slot>
     </div>
     <div v-if="open" class="overlay">
@@ -44,7 +44,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(#000, 0.4);
+  background-color: $color-overlay;
   display: flex;
   justify-content: center;
   align-items: center;

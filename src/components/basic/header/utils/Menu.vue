@@ -2,8 +2,9 @@
   <div :class="[{visible: visible}, 'overlay']">
     <nav>
       <ul>
-        <li><router-link to="/settings">settings</router-link></li>
-        <li><router-link to="/importExport">importExport</router-link></li>
+        <li @click="itemClick"><router-link to="/">Home</router-link></li>
+        <li @click="itemClick"><router-link to="/settings">Settings</router-link></li>
+        <li @click="itemClick"><router-link to="/import-export">Import Export</router-link></li>
       </ul>
     </nav>
   </div>
@@ -14,6 +15,10 @@ export default {
   props: {
     visible: {
       type: Boolean,
+      required: true
+    },
+    itemClick: {
+      type: Function,
       required: true
     }
   }
@@ -27,13 +32,13 @@ export default {
   left: 0;
   width: 100%;
   height: calc(100vh - #{$measure-height-header});
-  background-color: rgba(#000, 0.4);
+  background-color: $color-overlay;
   transform: translateX(-100%);
-  transition: all 1s ease;
+  transition: all 0.5s ease;
 
   &.visible {
     transform: translateX(0%);
-    transition: all 1s ease;
+    transition: all 0.75s ease;
   }
 
   nav {
