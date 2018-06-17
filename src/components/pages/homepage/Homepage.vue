@@ -30,15 +30,15 @@ export default {
 
 <style lang="scss" scoped>
 .homepage {
-  height: 100vh;
   width: 100%;
-  padding: 2.5%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     'showcase showcase news'
     'showcase showcase add_news'
     'showcase showcase add_show';
+  grid-column-gap: 10px;
 
   .showcase {
     grid-area: showcase;

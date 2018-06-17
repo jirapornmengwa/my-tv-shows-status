@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <router-view/>
+    <Header />
+    <main>
+      <router-view/>
+    </main>
   </div>
 </template>
 
 <script>
+import Header from '@/components/basic/header/Header';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Header
+  }
 };
 </script>
 

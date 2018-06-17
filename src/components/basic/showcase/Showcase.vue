@@ -34,5 +34,6 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px 0;
+  overflow: auto;
 }
 </style>

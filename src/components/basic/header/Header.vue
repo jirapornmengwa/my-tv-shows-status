@@ -16,13 +16,13 @@ header {
   width: 100%;
   height: $measure-height-header;
   background-color: #f2f2f2;
+	display: flex;
+	align-items: center;
 
   .menu {
     @include icon($icon-bars);
-    height: 100%;
-    display: flex;
-    align-items: center;
     padding-left: $measure-padding-general;
+		font-size: 2rem;
   }
 }
 </style>
