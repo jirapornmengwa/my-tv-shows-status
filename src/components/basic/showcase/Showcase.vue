@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Show from '@/components/basic/showcase/utils/Show';
-import {mapState, mapActions} from 'vuex';
+import Show from "@/components/basic/showcase/utils/Show";
+import {mapState, mapActions} from "vuex";
 
 export default {
   components: {
@@ -24,7 +24,7 @@ export default {
     shows: (state) => state.shows.showsList
   }),
   created() {
-    this.$store.dispatch('shows/getShows');
+    this.$store.dispatch("shows/getShows");
   }
 };
 </script>

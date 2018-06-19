@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import shows from './modules/showsModule';
+import Vue from "vue";
+import Vuex from "vuex";
+import shows from "./modules/showsModule";
 
 Vue.use(Vuex);
 

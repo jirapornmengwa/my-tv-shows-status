@@ -1,4 +1,4 @@
-import * as API from '../utils/api';
+import * as API from "../utils/api";
 
 // initial state
 const state = {
@@ -12,9 +12,9 @@ const getters = {};
 const actions = {
   getShows({commit, state}) {
     API.get(
-      '/shows',
+      "/shows",
       (resolve) => {
-        commit('setList', resolve.data);
+        commit("setList", resolve.data);
       },
       (reject) => {
         console.log(reject);
@@ -23,10 +23,10 @@ const actions = {
   },
   addShow({commit, state}, data) {
     API.post(
-      '/shows',
+      "/shows",
       data,
       (resolve) => {
-        commit('addShow', resolve.data);
+        commit("addShow", resolve.data);
       },
       (reject) => {
         console.log(reject);

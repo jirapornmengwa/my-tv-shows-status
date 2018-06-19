@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import Showcase from '@/components/basic/showcase/Showcase';
-import AddShow from '@/components/basic/addShow/AddShow';
-import Popup from '@/components/utils/popup/Popup';
-import Button from '@/components/utils/button/Button';
+import Showcase from "@/components/basic/showcase/Showcase";
+import AddShow from "@/components/basic/addShow/AddShow";
+import Popup from "@/components/utils/popup/Popup";
+import Button from "@/components/utils/button/Button";
 
 export default {
   components: {
@@ -35,9 +35,9 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    'showcase showcase news'
-    'showcase showcase add_news'
-    'showcase showcase add_show';
+    "showcase showcase news"
+    "showcase showcase add_news"
+    "showcase showcase add_show";
   grid-column-gap: 10px;
 
   .showcase {

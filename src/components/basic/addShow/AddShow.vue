@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex';
-import Button from '@/components/utils/button/Button';
-import Input from '@/components/utils/input/Input';
+import {mapActions} from "vuex";
+import Button from "@/components/utils/button/Button";
+import Input from "@/components/utils/input/Input";
 
 export default {
   props: {
@@ -35,7 +35,7 @@ export default {
         last_seen: this._data.last_seen,
         poster: this._data.poster
       };
-      this.$store.dispatch('shows/addShow', show);
+      this.$store.dispatch("shows/addShow", show);
 
       if (this.sumbitAction) {
         this.sumbitAction();

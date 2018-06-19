@@ -10,7 +10,7 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'text'
+      default: "text"
     },
     name: String,
     label: String,

@@ -13,11 +13,11 @@
 export default {
   methods: {
     saveFile: function() {
-      let blob = new Blob([localStorage.getItem('shows')], {type: 'application/json'});
-      let a = document.createElement('a');
+      let blob = new Blob([localStorage.getItem("shows")], {type: "application/json"});
+      let a = document.createElement("a");
 
       a.href = URL.createObjectURL(blob);
-      a.download = 'shows.json';
+      a.download = "shows.json";
       a.onclick = (event) => {
         event.target.remove();
       };

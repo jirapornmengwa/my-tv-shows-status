@@ -7,7 +7,7 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'button'
+      default: "button"
     },
     name: String,
     text: {
@@ -17,7 +17,7 @@ export default {
     importance: {
       type: String,
       validator: (value) => {
-        return ['primary', 'secondary'].indexOf(value) !== -1;
+        return ["primary", "secondary"].indexOf(value) !== -1;
       }
     },
     disabled: Boolean,
