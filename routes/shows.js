@@ -1,54 +1,34 @@
-const express = require('express');
-const router = express.Router();
-const Show = require('../models/Show');
+const router = require("express").Router();
+const Show = require("../models/Show");
+const asyncMiddleware = require("../utils/asyncMiddleware");
 
-router.route('/')
-	.get((req, res) => {
-		Show.find(function (err, data) {
-	    if (err) {
-				res.status(500).send(err);
-			}
-
-	    res.send(data);
-	  });
-	})
-	.post((req, res) => {
-	  Show.create(req.body, function (err, data) {
-	    if (err) {
-				res.status(500).send(err);
-			}
-
-	    res.send(data);
-	  });
-	});
-
-	router.route('/:id')
-		.get((req, res) => {
-			Show.find({_id: req.params.id}, function (err, data) {
-		    if (err) {
-					res.status(500).send(err);
-				}
-
-		    res.send(data);
-		  });
+router.route("/")
+	.get(
+		asyncMiddleware(async (req, res, next) => {
+			res.json(await Show.find());
 		})
-		.delete((req, res) => {
-			Show.deleteOne({_id: req.params.id}, function (err, data) {
-		    if (err) {
-					res.status(500).send(err);
-				}
-
-				res.send("Show deleted successfully.");
-		  });
+	)
+	.post(
+		asyncMiddleware(async (req, res, next) => {
+			res.json(await Show.create(req.body));
 		})
-		.put((req, res) => {
-			Show.updateOne({_id: req.params.id}, req.body, function (err, data) {
-		    if (err) {
-					res.status(500).send(err);
-				}
+	);
 
-		    res.send(data);
-		  });
-		});
+router.route("/:id")
+	.get(
+		asyncMiddleware(async (req, res, next) => {
+			res.json(await Show.find({_id: req.params.id}));
+		})
+	)
+	.delete(
+		asyncMiddleware(async (req, res, next) => {
+			res.json(await Show.deleteOne({_id: req.params.id}));
+		})
+	)
+	.put(
+		asyncMiddleware(async (req, res, next) => {
+			res.json(await Show.updateOne({_id: req.params.id}, req.body));
+		})
+	);
 
 module.exports = router;

@@ -2,24 +2,22 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const app = express();
-
-const shows = require("./routes/shows");
-
 mongoose.connect("mongodb://localhost:27017/my-tv-shows-status")
 	.then(() => {
 		console.log("Successfully connected to the database");
 	})
 	.catch((err) => {
-		console.log("Could not connect to the database. Exiting now...");
+		console.log("Could not connect to the database");
 		process.exit();
 	});
 mongoose.Promise = global.Promise;
 
+const app = express();
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
 	// Website you wish to allow to connect
 	res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
 
@@ -37,6 +35,11 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.use("/api/shows", shows);
+app.use("/api/shows", require("./routes/shows"));
+
+app.use((error, req, res, next) => {
+	res.status(400);
+	res.json(error);
+});
 
 app.listen(3000, () => console.log("Listening on port 3000"));
