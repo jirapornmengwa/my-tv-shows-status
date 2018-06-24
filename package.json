@@ -8,8 +8,7 @@
     "server": "nodemon server/server.js",
     "client": "webpack-dev-server --config build/webpack.dev.conf.js",
     "dev-client": "npm run server | npm run client",
-    "dev-server": "npm run client | npm run server",
-    "build": "node build/build.js"
+    "dev-server": "npm run client | npm run server"
   },
   "dependencies": {
     "axios": "^0.18.0",
