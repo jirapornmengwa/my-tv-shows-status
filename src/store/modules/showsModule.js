@@ -1,4 +1,5 @@
 import * as API from "../utils/api";
+import _filter from "lodash/filter";
 
 // initial state
 const state = {
@@ -12,7 +13,7 @@ const getters = {};
 const actions = {
   getShows({commit, state}) {
     API.get(
-      "/shows",
+      "shows",
       (resolve) => {
         commit("setList", resolve.data);
       },
@@ -23,10 +24,21 @@ const actions = {
   },
   addShow({commit, state}, data) {
     API.post(
-      "/shows",
+      "shows",
       data,
       (resolve) => {
         commit("addShow", resolve.data);
+      },
+      (reject) => {
+        console.log(reject);
+      }
+    );
+  },
+  deleteShow({commit, state}, id) {
+    API.del(
+      `shows/${id}`,
+      (resolve) => {
+        commit("removeShow", id);
       },
       (reject) => {
         console.log(reject);
@@ -42,6 +54,9 @@ const mutations = {
   },
   addShow(state, show) {
     state.showsList.push(show);
+  },
+  removeShow(state, id) {
+    state.showsList = _filter(state.showsList, (elem) => elem._id !== id);
   }
 };
 
