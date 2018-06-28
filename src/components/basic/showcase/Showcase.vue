@@ -3,11 +3,7 @@
     <Show
       v-for="(show, index) in shows"
       :key="index"
-      :title="show.title"
-      :poster="show.poster"
-      :status="show.status"
-      :last_aired="show.last_aired"
-      :last_seen="show.last_seen">
+      :show="show">
     </Show>
   </div>
 </template>
