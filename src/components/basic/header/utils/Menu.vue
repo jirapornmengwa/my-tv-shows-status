@@ -43,15 +43,20 @@ export default {
 
   nav {
     height: 100%;
-    width: 50%;
+    width: 75%;
     background-color: #fff;
+
+    @include media($breakpoint-medium) {
+      width: 50%;
+    }
 
     ul {
       li {
-        background-color: #e6f0ff;
+        background-color: $color-blue-light;
+        border-bottom: 1px solid #fff;
 
         &:nth-child(even) {
-          background-color: #f2f2f2;
+          background-color: $color-grey-main;
         }
 
         a {

@@ -32,7 +32,7 @@ header {
   left: 0;
   width: 100%;
   height: $measure-height-header;
-  background-color: #f2f2f2;
+  background-color: $color-grey-main;
   display: flex;
   align-items: center;
 
