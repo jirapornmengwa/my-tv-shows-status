@@ -1,5 +1,5 @@
 import * as API from "../utils/api";
-import _filter from "lodash/filter";
+import _ from "lodash";
 
 // initial state
 const state = {
@@ -34,6 +34,18 @@ const actions = {
       }
     );
   },
+  updateShow({commit, state}, {id, data}) {
+    API.put(
+      `shows/${id}`,
+      data,
+      (resolve) => {
+        commit("updateShow", {id, data});
+      },
+      (reject) => {
+        console.log(reject);
+      }
+    );
+  },
   deleteShow({commit, state}, id) {
     API.del(
       `shows/${id}`,
@@ -56,7 +68,14 @@ const mutations = {
     state.showsList.push(show);
   },
   removeShow(state, id) {
-    state.showsList = _filter(state.showsList, (elem) => elem._id !== id);
+    state.showsList = _.filter(state.showsList, (elem) => elem._id !== id);
+  },
+  updateShow(state, {id, data}) {
+    let index = _.findIndex(state.showsList, {_id: id});
+    let keys = _.keys(data);
+    for (let key of keys) {
+      state.showsList[index][key] = data[key];
+    }
   }
 };
 

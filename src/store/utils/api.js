@@ -26,6 +26,16 @@ export function post(url, data, resolve, reject) {
     });
 }
 
+export function put(url, data, resolve, reject) {
+  return API.put(url, data)
+    .then((response) => {
+      resolve(response);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+}
+
 export function del(url, resolve, reject) {
   return API.delete(url)
     .then((response) => {
