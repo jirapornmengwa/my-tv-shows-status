@@ -12,50 +12,24 @@ const getters = {};
 // actions
 const actions = {
   getShows({commit, state}) {
-    API.get(
-      "shows",
-      (resolve) => {
-        commit("setList", resolve.data);
-      },
-      (reject) => {
-        console.log(reject);
-      }
-    );
+    API.get("shows", (resolve) => {
+      commit("setList", resolve.data);
+    });
   },
   addShow({commit, state}, data) {
-    API.post(
-      "shows",
-      data,
-      (resolve) => {
-        commit("addShow", resolve.data);
-      },
-      (reject) => {
-        console.log(reject);
-      }
-    );
+    API.post("shows", data, (resolve) => {
+      commit("addShow", resolve.data);
+    });
   },
   updateShow({commit, state}, {id, data}) {
-    API.put(
-      `shows/${id}`,
-      data,
-      (resolve) => {
-        commit("updateShow", {id, data});
-      },
-      (reject) => {
-        console.log(reject);
-      }
-    );
+    API.put(`shows/${id}`, data, (resolve) => {
+      commit("updateShow", {id, data});
+    });
   },
   deleteShow({commit, state}, id) {
-    API.del(
-      `shows/${id}`,
-      (resolve) => {
-        commit("removeShow", id);
-      },
-      (reject) => {
-        console.log(reject);
-      }
-    );
+    API.del(`shows/${id}`, (resolve) => {
+      commit("removeShow", id);
+    });
   }
 };
 

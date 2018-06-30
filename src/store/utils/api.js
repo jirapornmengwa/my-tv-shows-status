@@ -6,42 +6,42 @@ const API = axios.create({
   headers: {}
 });
 
-export function get(url, resolve, reject) {
+export function get(url, resolve) {
   return API.get(url)
     .then((response) => {
       resolve(response);
     })
     .catch((error) => {
-      reject(error);
+      console.log(error);
     });
 }
 
-export function post(url, data, resolve, reject) {
+export function post(url, data, resolve) {
   return API.post(url, data)
     .then((response) => {
       resolve(response);
     })
     .catch((error) => {
-      reject(error);
+      console.log(error);
     });
 }
 
-export function put(url, data, resolve, reject) {
+export function put(url, data, resolve) {
   return API.put(url, data)
     .then((response) => {
       resolve(response);
     })
     .catch((error) => {
-      reject(error);
+      console.log(error);
     });
 }
 
-export function del(url, resolve, reject) {
+export function del(url, resolve) {
   return API.delete(url)
     .then((response) => {
       resolve(response);
     })
     .catch((error) => {
-      reject(error);
+      console.log(error);
     });
 }
