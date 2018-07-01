@@ -25,6 +25,9 @@ npm install
 
 # run your MongoDB server
 
+# if you need seed data (requires mongodb tool mongorestore installed on your machine)
+npm run seed-data
+
 # serve with hot reload at localhost:8080 and localhost:3000
 npm run dev-client or npm run dev-server
 ```

@@ -1,10 +1,11 @@
 {
   "name": "my-tv-shows-status",
   "version": "1.0.0",
-  "description": "",
+  "description": "a better text editor to keep track of your favorite tv shows",
   "author": "Cristi Ciobanu",
   "private": true,
   "scripts": {
+    "seed-data": "mongorestore seed-data",
     "server": "nodemon server/server.js",
     "client": "webpack-dev-server --config build/webpack.dev.conf.js",
     "dev-client": "npm run server | npm run client",
@@ -64,9 +65,9 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c-ciobanu/my-tv-shows-status.git"
+  }
 }
